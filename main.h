@@ -20,7 +20,7 @@
 typedef struct _file_list
 {
     char filename[BUFF_SIZE];
-    struct _file_list *input_file;  //to point to the next input file given in CLI
+    struct _file_list *next_file;  //to point to the next input file given in CLI
 }file_list;
 
 //FILE LIST for storing the each word file list
@@ -37,10 +37,8 @@ typedef struct _word_node
 {  
     char word[BUFF_SIZE];
     int total_word_cnt;
-    file_node *fptr;
-    struct _word_node *word_list; // to point to next word of the same alphabet
+    file_node *word_fptr;
+    struct _word_node *next_word; // to point to next word of the same alphabet
 }word_node;
 
-// Validation
-int validate_file(int argc, char *argv[], file_list **file_head);
 #endif
